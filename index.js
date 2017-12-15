@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
   });
 });
 
-
-http.listen(3000, () => {
-    console.log('Escuchando el puerto ' + 3000);
+let port_number = process.env.PORT || 3000;
+http.listen(port_number, () => {
+    console.log('Escuchando el puerto ' + port_number);
 });
