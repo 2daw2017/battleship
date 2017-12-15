@@ -1,0 +1,61 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-nov-2017, 19:12:32
+    Author     : havaed
+*/
+.battleship * {
+  box-sizing: border-box;
+  font-size: 30px;
+}
+.battleship .board {
+  width: 10em;
+  height: 10em;
+  margin: 1em auto; 
+  /*z-index: 5;*/
+}
+
+.battleship .cell {
+  position: relative;
+  float: left;
+  width: 1em;
+  height: 1em;
+  border: .01em solid lightskyblue;
+}
+
+/* Cell states */
+.battleship .board .cell.water { background-color: blue; }
+.battleship .board .cell.ship { background-color: rgba(200, 200, 200, .8); }
+.battleship .board .cell.hit { background-color: red; }
+.battleship .board .cell.sunk { background-color: rgba(255, 0, 0, .25); }
+.battleship .board .cell.notavailable { background-color: rgba(245, 245, 245, 1); }
+.battleship .board .cell.ship-preview { background-color: rgba(0, 128, 0, .5); }
+
+
+.battleship .ship{
+  display: inline-block;
+  height: 1em;
+  margin: .5em;
+  background-color: rgba(128, 128, 128, .5);
+}
+.battleship .board .ship{
+  margin: 0;
+}
+.battleship .ship[data-size = '1'] { width: calc( 1em * 1 ); }
+.battleship .ship[data-size = '2'] { width: calc( 1em * 2 ); }
+.battleship .ship[data-size = '3'] { width: calc( 1em * 3 ); }
+.battleship .ship[data-size = '4'] { width: calc( 1em * 4 ); }
+.battleship .ship[data-size = '5'] { width: calc( 1em * 5 ); }
+.battleship .ship.vertical { width: 1em; }
+.battleship .ship.vertical[data-size = '1'] { height: calc( 1em * 1 ); }
+.battleship .ship.vertical[data-size = '2'] { height: calc( 1em * 2 ); }
+.battleship .ship.vertical[data-size = '3'] { height: calc( 1em * 3 ); }
+.battleship .ship.vertical[data-size = '4'] { height: calc( 1em * 4 ); }
+.battleship .ship.vertical[data-size = '5'] { height: calc( 1em * 5 ); }
+
+.battleship .ship-area .ship {
+  vertical-align: top;
+}
