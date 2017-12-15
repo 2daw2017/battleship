@@ -5,12 +5,7 @@ let app = express();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
-app.use(express.static(__dirname + '/www'));
-
-app.get('/', function(req, res) {
-	console.log('sending homepage');
-	res.sendFile(__dirname + '/www/index.html');
-});
+app.use('/', express.static(__dirname + '/www'));
 
 app.get('*', function(req, res) {
 	console.log('sending 404 message');
