@@ -5,7 +5,9 @@ let app = express();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
-app.use(express.static(__dirname + '/www'));
+app.get('/', function(req, res) {
+	res.sendFile(__dirname + '/www' + '/index.html');
+});
 
 io.on('connection', (socket) => {
   console.log('user connected');
