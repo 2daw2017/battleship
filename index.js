@@ -5,16 +5,16 @@ let app = express();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
-app.use(express.static('www'));
+app.use(express.static(__dirname + '/www'));
 
 app.get('/', function(req, res) {
-	console.log('request recived');
+	console.log('sending homepage');
 	res.sendFile(__dirname + '/www/index.html');
 });
 
-app.get('/', function(req, res) {
-	console.log('request recived');
-	res.sendFile(__dirname + '/www/index.html');
+app.get('*', function(req, res) {
+	console.log('sending 404 message');
+	res.status(404).send(':( 404 Error');
 });
 
 io.on('connection', (socket) => {
