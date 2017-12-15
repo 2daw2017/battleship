@@ -2,14 +2,10 @@
 
 let express = require('express');
 let app = express();
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
 
 app.use(express.static(__dirname + '/www'));
-
-let server = app.listen(3000, () => {
-    console.log('Escuchando el puerto ' + 3000);
-});
-
-let io = require('socket.io')(http);
 
 io.on('connection', (socket) => {
   console.log('user connected');
@@ -17,4 +13,9 @@ io.on('connection', (socket) => {
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
+});
+
+
+http.listen(3000, () => {
+    console.log('Escuchando el puerto ' + 3000);
 });
