@@ -6,6 +6,7 @@ let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
 app.get('/', function(req, res) {
+	console.log('request recived');
 	res.sendFile(__dirname + '/www/index.html');
 });
 
